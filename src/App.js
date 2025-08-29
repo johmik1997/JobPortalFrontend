@@ -20,7 +20,7 @@ import AdminDashboard from './page/AdminDashboard'
 import EditJobPage from './page/EditJobPage'
 
 function App() {
-  useTitle('Dan D. Repairs')
+  useTitle('TalentHub')
 
   return (
     <Routes>
