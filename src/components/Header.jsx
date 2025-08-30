@@ -118,98 +118,100 @@ const Header = () => {
       </div>
 
       {/* Mobile Dropdown */}
-      {mobileMenuOpen && (
-        <div className="md:hidden bg-blue-800 px-6 pb-4 space-y-4">
-          <NavLink to="/" className={linkClasses} onClick={() => setMobileMenuOpen(false)}>
-            Home
-          </NavLink>
+      {/* Mobile Dropdown */}
+{mobileMenuOpen && (
+  <div className="md:hidden bg-blue-800 px-6 pb-4 flex flex-col space-y-4">
+    <NavLink to="/" className={linkClasses} onClick={() => setMobileMenuOpen(false)}>
+      Home
+    </NavLink>
 
-          {roles.includes("Admin") && (
-            <NavLink to="/users" className={linkClasses} onClick={() => setMobileMenuOpen(false)}>
-              Users
-            </NavLink>
-          )}
+    {roles.includes("Admin") && (
+      <NavLink to="/users" className={linkClasses} onClick={() => setMobileMenuOpen(false)}>
+        Users
+      </NavLink>
+    )}
 
-          {roles.includes("Developer") && (
-            <>
-              <NavLink
-                to="/jobs"
-                className={linkClasses}
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Jobs
-              </NavLink>
-              <NavLink
-                to="/dashboard/applicant"
-                className={linkClasses}
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                My Applications
-              </NavLink>
-            </>
-          )}
+    {roles.includes("Developer") && (
+      <>
+        <NavLink
+          to="/jobs"
+          className={linkClasses}
+          onClick={() => setMobileMenuOpen(false)}
+        >
+          Jobs
+        </NavLink>
+        <NavLink
+          to="/dashboard/applicant"
+          className={linkClasses}
+          onClick={() => setMobileMenuOpen(false)}
+        >
+          My Applications
+        </NavLink>
+      </>
+    )}
 
-          {roles.includes("employer") && (
-            <>
-              <NavLink
-                to="/employer/job"
-                className={linkClasses}
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Jobs Posted
-              </NavLink>
-              <NavLink
-                to="/dashboard/employer"
-                className={linkClasses}
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Dashboard
-              </NavLink>
-            </>
-          )}
+    {roles.includes("employer") && (
+      <>
+        <NavLink
+          to="/employer/job"
+          className={linkClasses}
+          onClick={() => setMobileMenuOpen(false)}
+        >
+          Jobs Posted
+        </NavLink>
+        <NavLink
+          to="/dashboard/employer"
+          className={linkClasses}
+          onClick={() => setMobileMenuOpen(false)}
+        >
+          Dashboard
+        </NavLink>
+      </>
+    )}
 
-          <NavLink to="/about" className={linkClasses} onClick={() => setMobileMenuOpen(false)}>
-            About Us
-          </NavLink>
-          <NavLink to="/contact" className={linkClasses} onClick={() => setMobileMenuOpen(false)}>
-            Contact Us
-          </NavLink>
+    <NavLink to="/about" className={linkClasses} onClick={() => setMobileMenuOpen(false)}>
+      About Us
+    </NavLink>
+    <NavLink to="/contact" className={linkClasses} onClick={() => setMobileMenuOpen(false)}>
+      Contact Us
+    </NavLink>
 
-          {/* Mobile Auth */}
-          {!username ? (
-            <>
-              <Link
-                to="/login"
-                className="block text-white hover:text-green-400 transition"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Login
-              </Link>
-              <Link
-                to="/register"
-                className="block bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg shadow-md transition"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Register
-              </Link>
-            </>
-          ) : (
-            <>
-              <span className="block text-white">Hi, {username}</span>
-              <button
-                onClick={() => {
-                  handleLogout();
-                  setMobileMenuOpen(false);
-                }}
-                disabled={isLoading}
-                className="w-full bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg shadow-md transition"
-              >
-                Logout
-              </button>
-            </>
-          )}
-        </div>
-      )}
+    {/* Mobile Auth */}
+    {!username ? (
+      <>
+        <Link
+          to="/login"
+          className="text-white hover:text-green-400 transition"
+          onClick={() => setMobileMenuOpen(false)}
+        >
+          Login
+        </Link>
+        <Link
+          to="/register"
+          className="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg shadow-md transition text-center"
+          onClick={() => setMobileMenuOpen(false)}
+        >
+          Register
+        </Link>
+      </>
+    ) : (
+      <>
+        <span className="text-white">Hi, {username}</span>
+        <button
+          onClick={() => {
+            handleLogout();
+            setMobileMenuOpen(false);
+          }}
+          disabled={isLoading}
+          className="w-full bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg shadow-md transition"
+        >
+          Logout
+        </button>
+      </>
+    )}
+  </div>
+)}
+
     </header>
   );
 };
